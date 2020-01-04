@@ -1,14 +1,16 @@
 from github import Github
 import argparse
+from getpass import getpass
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-u', '--user', help="username")
-parser.add_argument('-p', '--password', help="password")
 parser.add_argument('-r', '--repo', help="repository")
 args = parser.parse_args()
 
-user, password, repo = args.user, args.password, args.repo
 
+
+user, repo = args.user, args.repo
+password = getpass()
 
 # login with username and password
 g = Github(user, password)
